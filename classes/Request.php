@@ -15,6 +15,15 @@
 			unset($_GET, $_POST);
 		}
 		
+		public function uri($index){
+			$uri = $this->get('cont');
+			if(!$uri) $uri = 'home/index';
+			$uri_items = explode('/', $uri);
+			if(isset($uri_items[$index])) return $uri_items[$index];
+			
+			return null;
+		}
+		
 		public function get($var){
 			if(isset($this->get[$var])) return $this->get[$var];
 			return null;
