@@ -1,6 +1,7 @@
 Assignment:
 
 * Account balance
+
 * Transactions:
 	Deposit
 	Withdraw
