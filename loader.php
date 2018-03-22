@@ -1,8 +1,16 @@
 <?php
 	spl_autoload_register(function($class_name){
-		$include = "./controllers/{$class_name}.php";
-		if(is_file($include)){
-			include($include);
+		$class_dirs = [
+			'./classes',
+			'./controllers',
+			'./models'
+		];
+		foreach($class_dirs as $dir){
+			$include = "{$dir}/{$class_name}.php";
+			if(is_file($include)){
+				include($include);
+				return;
+			}
 		}
 	});
 	
