@@ -1,5 +1,6 @@
 <?php
 	class help extends Controller{
+
 		public function classes(){
 			echo 'PHP classes help topics';
 		}
@@ -9,9 +10,12 @@
 		}
 		
 		public function variables(){
-			echo 'PHP variables start with $' 
-				. $this->request->uri(2) . ' '
-				. $this->request->get('id') . ' '
-				. $this->request->get('filter');
+			$data = [
+				'variables' => [
+					'abc' => 123,
+					'xyz' => 'Hello world'
+				]
+			];
+			echo $this->load_view('./views/variables.php', $data);
 		}
 	}

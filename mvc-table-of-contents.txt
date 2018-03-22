@@ -1,0 +1,66 @@
+PHP MVC pattern:
+https://stackoverflow.com/questions/5863870/how-should-a-model-be-structured-in-mvc
+
+* index.php:
+    bootstrap
+    get controller and action (class and method)
+        set a default one if none provided
+    call router
+
+	* bootstrap:
+		load config file(s)
+		set up autoloading
+		initiate DB connection
+		... etc
+	* router:
+		validates that controller exists
+			class_exists
+		initiate controller class
+		validates that method exists
+			is_callable
+		call controller and action:
+			call_user_func_array([$controller, 'action'], [])
+
+	* request data:
+		adding a Request class
+			get
+			post
+			cookie
+			put
+			delete
+			files
+			gpc
+			session
+			uri -- http://localhost/oop/client/accounts/summary
+			streams: php://input, php://stdin, php://stdout, php://stderr ...
+	
+	* controller methods (actions):
+		change state via model
+		[retrieve data from model]
+		[pass data to some view file]
+		** controllers might pass control to another controller
+			(for example, to show some error, ask for login, ... etc)
+		[view displays data passed from controller]
+		view retrieves and displays data from model
+	* model:
+		* domain objects (business logic):
+			data validation, sending invoices, computing invoice totals
+			account transactions, ... etc.
+			>>> data storage and retrieval is NOT handled here
+			>>> examples:
+				transactions (deposit, withdrawal, transfer)
+				account balance
+				... etc
+		* data mappers:
+			data storage and retrieval is handled here:
+				ORM (propel, doctrine, ... etc), SQL
+				REST API calls
+				text/csv files, xml, json
+				storage objects (S3) ...
+		* services:
+			responsible for interaction between domain objects and mappers
+			(useful for implementing DI)
+
+
+
+
