@@ -85,7 +85,7 @@ class home
         #transfer
         $client1->accounts[$acc_num - 1]->transfer(200, 1000000100);
 
-
+        
 
         #balance
         echo '<br/>for client 1 : ';
