@@ -6,8 +6,6 @@ class Account
     protected $account_number;
     protected $balance = 0.0;
     protected $transactions;
-    private $index_of_account;
-    private $clinet_to_receive_money;
 
     public function __construct($account_number)
     {
