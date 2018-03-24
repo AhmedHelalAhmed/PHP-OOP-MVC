@@ -1,13 +1,9 @@
 <?php
 
-class home
-{
-
-    public function index()
-    {
-
-        echo "Welcome to MVC!";
-        echo '<br/>';
+	class home extends Controller{
+		public function index(){
+			echo "Welcome to MVC!";
+			        echo '<br/>';
         echo "test the task ";
         echo '<br/>';
 
@@ -16,7 +12,7 @@ class home
         #to store the clients
         global $clients;
         $clients[] = $client1;
-//        echo $client1->full_name();
+        // echo $client1->full_name();
         //echo $client1->first_name . ' ' . $client1->last_name;
         $client1->add_account(1000000015)->add_checkbook();
         $client1->add_account(1000000016);
@@ -107,6 +103,6 @@ class home
         echo $client3->accounts[$acc_num - 1]->get_transactions();
         $acc_num = 2;
         echo'<br/>==========( transactions )==========<br/>';
-    }
+		}
+	}
 
-}
